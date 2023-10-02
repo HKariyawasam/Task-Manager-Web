@@ -1,0 +1,233 @@
+.update-font {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.update-font::after {
+    content: "";
+    display: block;
+    width: 37rem;
+    height: 1px;
+    background: #656568;
+    left: 155px;
+    top: 60%;
+    position: absolute;
+
+}
+
+.create-panel {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-pad {
+    padding-bottom: 10px;
+}
+
+.create-panel-form {
+    width: 100vh;
+    min-height: 100vh;
+    border: 1px solid #512474;
+    border-radius: 10px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.45);
+
+}
+
+.template-content-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    position: relative;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+}
+
+.create-template-form {
+    width: 100vh;
+    min-height: 50vh;
+    border: 1px solid #512474;
+    border-radius: 10px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.45);
+}
+
+.view-templates {
+    width: 150vh;
+    min-height: 100vh;
+   
+    border-radius: 10px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.45);
+    
+}
+
+.delete-modal {
+    padding-right: 50px;
+}
+
+.auto-width {
+    height: 20px;
+}
+
+.searchbar {
+    margin-right: -5px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #9D50BB;
+    padding: 0;
+}
+
+.search_input {
+    color: black;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 21.5rem;
+    line-height: 30px;
+    padding-left: 1rem;
+}
+
+
+.search_icon {
+    top: 10px;
+    height: 35px;
+    width: 50px;
+    float: right;
+    display: flex;
+    border-radius: 1rem;
+    color: white;
+    background-color: #9D50BB;
+    text-decoration: none;
+    margin-top: -33px;
+}
+
+.search_icon:hover {
+    color: #512474;
+}
+
+.search-box {
+    width: 300px;
+}
+
+.content {
+    position: relative;
+    height: 10rem;
+}
+
+.section-view {
+    position: relative;
+    width: 100%;
+    color: #000000;
+    background-color: rgba(75, 63, 63, 0.116);
+    height: 2.5rem;
+}
+
+.vertical-line {
+    position: relative;
+    width: 10px;
+    height: 2.5rem;
+    background-color: #9D50BB;
+}
+
+.section-heading {
+    position: relative;
+    padding: 8px 15px;
+    font-weight: 400;
+    font-size: 16px;
+    width: 350px !important;
+    color: #000000;
+}
+
+.download-links-list {
+    position: relative;
+    width: 100vh;
+    margin-left: 50px;
+    padding: 20px;
+}
+
+.admin-body-content-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    min-height: 5vh;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 4rem;
+}
+
+.admin-dash-top {
+    width: 180vh;
+   
+
+}
+
+.pie-chart {
+    position: relative;
+    width: 750px;
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.chart {
+    position: relative;
+    width: 600px;
+    margin-left: 30px;
+    padding: 20px;
+}
+
+.chart2 {
+    position: relative;
+    width: 600px;
+    margin-left: 40px;
+    padding: 20px;
+}
+
+.section-view-subheader {
+    position: relative;
+    width: 100%;
+    color: #000000;
+    background-color: rgba(249, 249, 249, 0.993);
+    height: 2.5rem;
+}
+
+.view-admin {
+    width: 180vh;
+    min-height: 60vh;
+ 
+}
+
+.body-content-admin {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.headline-chart {
+    font-weight: bold;
+    text-indent: 2rem;
+    text-align: center;
+    font-size: larger;
+}
+.my-search{
+    position: absolute;
+    /* background-color: blue; */
+    width: 400px;
+    height: 100px;
+    margin-left: 880px;
+    margin-top: -100px;
+}
