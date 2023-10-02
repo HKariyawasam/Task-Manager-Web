@@ -9,6 +9,7 @@ import { getUser } from "../../../utils/userSessions";
 
 function AddModal(task) {
  
+    //states for add form
   const [username, setUserName] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -16,6 +17,7 @@ function AddModal(task) {
   const [priority, setPriority] = useState("");
  
 
+  //submit data to create a task
   const onSubmit = (e) => {
     e.preventDefault();
 

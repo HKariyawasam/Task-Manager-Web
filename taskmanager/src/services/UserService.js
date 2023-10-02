@@ -3,6 +3,7 @@ import axios from 'axios'
 
 const baseURL = "http://localhost:8080/users/"
 
+//register a new user
 export const registerUser = async (userPayload) => {
     console.log(userPayload)
     try {
@@ -25,6 +26,8 @@ export const registerUser = async (userPayload) => {
 
 }
 
+
+//login with an existing user
 export const loginUser = async (user) => {
 
     try {
