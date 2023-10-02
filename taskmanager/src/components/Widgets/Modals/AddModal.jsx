@@ -1,54 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Modal } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { FormSection } from "../FormSection";
 import { RippleButton } from "../RippleButton";
 import toastNotification from "../toastNotification";
 import "../../Widgets/style.css";
-import { updateTask } from "../../../services/TaskService";
+import { createTask } from "../../../services/TaskService";
+import { getUser } from "../../../utils/userSessions";
 
-function EditModal(task) {
+function AddModal(task) {
  
-
-  let navigate = useNavigate();
-
   const [username, setUserName] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("");
   const [priority, setPriority] = useState("");
-  const [id, setId] = useState("");
-  const [updatedAt, setUpdatedAt] = useState("");
-  const [createdAt, setCreatedAt] = useState("");
-
-  const setTaskList = () => {
-    setUserName(task.data.username);
-    setTitle(task.data.title);
-    setDescription(task.data.description);
-    setStatus(task.data.status);
-    setPriority(task.data.priority);
-    setId(task.data.id);
-    setUpdatedAt(task.data.updatedAt);
-    setCreatedAt(task.data.createdAt);
-  };
-
-  useEffect(() => {
-    setTaskList();
-  }, []);
+ 
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const updateTaskPayload = {
-      id,
+    let user = getUser()
+    const taskPayload = {
       title,
       description,
       status,
       priority,
-      username,
+      username : user,
     };
 
-    updateTask(updateTaskPayload)
+    createTask(taskPayload)
       .then((response) => {
         if (response.ok) {
           toastNotification("Success!", "success");
@@ -65,7 +45,7 @@ function EditModal(task) {
   return (
     <div>
       <Modal.Header>
-        <Modal.Title>Update Task Details</Modal.Title>
+        <Modal.Title>Create New Task</Modal.Title>
         <div>
           <button className="btn btn-close" onClick={task.onHide}></button>
         </div>
@@ -88,11 +68,9 @@ function EditModal(task) {
                     class="form-control"
                     id="uName"
                     placeholder="Last Name"
-                    value={username}
                     onChange={(e) => {
                       setUserName(e.target.value);
                     }}
-                    disabled
                   />
                 </div>
                 <div class="col-6">
@@ -104,7 +82,7 @@ function EditModal(task) {
                     class="form-control"
                     id="title"
                     placeholder="Title"
-                    value={title}
+                   
                     onChange={(e) => {
                       setTitle(e.target.value);
                     }}
@@ -123,7 +101,6 @@ function EditModal(task) {
                     className="form-control"
                     name="status"
                     id="status"
-                    value={task.data.status}
                     onChange={(e) => {
                       setStatus(e.target.value);
                     }}
@@ -143,7 +120,6 @@ function EditModal(task) {
                     className="form-control"
                     name="degree"
                     id="degree"
-                    value={task.data.priority}
                     onChange={(e) => {
                       setPriority(e.target.value);
                     }}
@@ -171,7 +147,7 @@ function EditModal(task) {
                     class="form-control"
                     id="description"
                     placeholder="Description"
-                    value={description}
+                  
                     onChange={(e) => {
                       setDescription(e.target.value);
                     }}
@@ -206,4 +182,4 @@ function EditModal(task) {
   );
 }
 
-export default EditModal;
+export default AddModal;

@@ -6,7 +6,7 @@ import {
   MDBTableBody,
 } from "mdb-react-ui-kit";
 import "./Table.css";
-import { FaEdit, FaTrash,FaSearch  } from "react-icons/fa";
+import { FaEdit, FaTrash, FaPlus} from "react-icons/fa";
 import ViewModal from "./Modals/ViewModal";
 import { Modal } from "react-bootstrap";
 import EditModal from "./Modals/EditModal";
@@ -14,6 +14,7 @@ import { deleteTask } from "../../services/TaskService";
 import { RippleButton } from "../Widgets/RippleButton";
 import toastNotification from "./toastNotification";
 import './style.css'
+import AddModal from "./Modals/AddModal";
 
 export default function Table(props) {
   const [tasks, setTasks] = useState([]);
@@ -26,9 +27,11 @@ export default function Table(props) {
   const [modalDataUpdate, setModalDataUpdate] = useState([]);
   const [modalUpdate, setModalUpdate] = useState(false);
 
+  const [modalCreate, setModalCreate] = useState(false);
+
   const [modalDataDelete, setModalDataDelete] = useState([]);
   const [modalDeleteConfirm, setModalDeleteConfirm] = useState(false);
-  const [modalDelete, setModalDelete] = useState(false);
+
 
   useEffect(() => {
     setTasks(props.tasks);
@@ -84,6 +87,11 @@ export default function Table(props) {
     setModalUpdate(true);
   };
 
+  const openModalCreate = () => {
+    setModalCreate(true);
+
+  };
+
   const openModalDelete = (data) => {
       setModalDataDelete(data);
       setModalDeleteConfirm(true);
@@ -111,10 +119,13 @@ export default function Table(props) {
       >
         <ViewModal data={modalData} onHide={() => setModalShow(false)} />
       </Modal>
+
+     
       
       <MDBTable align="middle" striped className="caption-top" responsive>
         <caption style={{ marginBottom: '10px', marginTop:'50px', fontSize:'30px', fontWeight:'bold' }}>Task List</caption>
-        <div className="my-search"> {/* Add d-flex to center align items */}
+       
+        <div className="my-search"> 
                 <input
                     type="text"
                     className="form-control"
@@ -203,6 +214,10 @@ export default function Table(props) {
         </MDBTableBody>
       </MDBTable>
 
+      <button  style={{marginTop:'-600px',marginLeft:"130px", fontSize:'20px', fontWeight:'bold', color:"white"}}
+        type="button" rounded size="md" className="btn btn-warning mr-6" onClick={() => openModalCreate()}>
+                    <FaPlus />
+                  </button>
       {/* Modal to be used in update */}
       <Modal
         show={modalUpdate}
@@ -213,6 +228,20 @@ export default function Table(props) {
       >
         <EditModal
           data={modalDataUpdate}
+          onHide={() => setModalUpdate(false)}
+        />
+      </Modal>
+
+        {/* Modal to be used in create task */}
+        <Modal
+        show={modalCreate}
+        onHide={() => setModalCreate(false)}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <AddModal
+          // data={modalDataUpdate}
           onHide={() => setModalUpdate(false)}
         />
       </Modal>
