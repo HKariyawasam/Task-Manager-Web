@@ -12,6 +12,7 @@ import { loginUser, registerUser } from "../../services/UserService";
 import toastNotification from "../Widgets/toastNotification";
 import { ToastContainer } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { setUserSession } from "../../utils/userSessions";
 
 
 
@@ -35,6 +36,7 @@ export function Login() {
       loginUser(userObject).then((response)=>{
         if(response.ok){
           console.log(response.data)
+          setUserSession(response.data.username)
           navigate("/tasks")
         }else{
           toastNotification("UnAuthorized User!", "error") 
