@@ -68,9 +68,11 @@ function AddModal(task) {
                     class="form-control"
                     id="uName"
                     placeholder="Last Name"
+                    value={getUser()}
                     onChange={(e) => {
                       setUserName(e.target.value);
                     }}
+                    disabled
                   />
                 </div>
                 <div class="col-6">
